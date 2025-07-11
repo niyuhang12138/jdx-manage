@@ -7,7 +7,6 @@ export const request = new Request({
 });
 
 request.setRequestInterceptors((config) => {
-    console.log(config);
     return config;
 });
 

@@ -35,15 +35,31 @@ const loginRules: Record<Exclude<keyof LoginData, 'remember' | 'uuid'>, Rule[]> 
     code: [{ required: true, message: '请输入验证码' }],
 };
 
+// 存储图片验证码
 const captchaImage = ref('');
+
+/**
+ * 获取验证码图片
+ */
+async function getCaptchaImage() {
+    const res = await getCaptchaImageApi();
+    captchaImage.value = 'data:image/gif;base64,' + res.data.img;
+    loginData.uuid = res.data.uuid;
+}
+
+// 登录加载状态
 const loading = ref(false);
-const handleLogin = async () => {
+
+/**
+ * 登录处理函数
+ */
+const loginHandler = async () => {
     loading.value = true;
     try {
         const { username, password, code, uuid } = loginData;
         const res = await loginApi({ username, password, code, uuid });
         if (res.data.code !== 200) {
-            message.error('登录失败，请检查用户名、密码或验证码。');
+            message.error(res.data.msg);
             loginData.code = '';
             // 获取新的验证码
             await getCaptchaImage();
@@ -68,31 +84,24 @@ const handleLogin = async () => {
     }
 };
 
-/**
- * 获取验证码图片
- */
-async function getCaptchaImage() {
-    const res = await getCaptchaImageApi();
-    captchaImage.value = 'data:image/gif;base64,' + res.data.img;
-    loginData.uuid = res.data.uuid;
-}
-
-const loginTitle = useTemplateRef('loginTitle');
+const loginTitleInstance = useTemplateRef<HTMLDivElement>('loginTitle');
+// 定时器（在onUnmounted时清除）
 let timer = 0;
 /**
  * 登录标题动画
  */
 function loginTitleAnimation() {
-    let chars: string[] = [];
+    console.log('我执行了');
+    let str = '';
     const len = BASE_TITLE.length;
     timer = setInterval(() => {
-        if (loginTitle.value) {
-            if (chars.length === len) {
-                chars = BASE_TITLE.slice(0, 1).split('');
+        if (loginTitleInstance.value) {
+            if (str.length === len) {
+                str = BASE_TITLE.slice(0, 1);
             } else {
-                chars = BASE_TITLE.slice(0, chars.length + 1).split('');
+                str = BASE_TITLE.slice(0, str.length + 1);
             }
-            loginTitle.value.textContent = chars.join('');
+            loginTitleInstance.value.textContent = str;
         }
     }, 500);
 }
@@ -126,7 +135,7 @@ onMounted(() => {
 
 onUnmounted(() => {
     // 清除定时器
-    clearTimeout(timer);
+    clearInterval(timer);
 });
 </script>
 
@@ -143,7 +152,7 @@ onUnmounted(() => {
                     <div class="login-logo">
                         <img :src="LoginPicture" alt="Logo" />
                         <h1>
-                            <div class="login-title" ref="loginTitle">{{ BASE_TITLE }}</div>
+                            <span class="login-title" ref="loginTitle">{{ BASE_TITLE }}</span>
                         </h1>
                     </div>
 
@@ -151,7 +160,7 @@ onUnmounted(() => {
                         :form="loginForm"
                         :model="loginData"
                         name="login"
-                        @finish="handleLogin"
+                        @finish="loginHandler"
                         size="large"
                         autocomplete="off"
                         :rules="loginRules"
@@ -205,7 +214,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variable.scss' as variable;
-@use '@/assets/styles/animate.scss';
+@use '@/assets/styles/animate';
 
 .container {
     position: relative;
@@ -237,7 +246,7 @@ onUnmounted(() => {
                 transform: translate(-50%, -50%);
                 padding: 5vw;
                 border-radius: 2.6667vw;
-                box-shadow: 0 2.6667vw 8vw rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2.6667vw 8vw rgb(0 0 0 / 10%);
                 z-index: 10;
                 transition: all 0.3s ease;
                 box-sizing: border-box;
@@ -246,12 +255,9 @@ onUnmounted(() => {
 
                 .login-logo {
                     text-align: center;
-                    font-size: 5vw;
                     margin-bottom: 10vw;
 
                     & > img {
-                        width: 5.3333vw;
-                        height: 5.3333vw;
                         border-radius: 50%;
                         margin-bottom: 1vw;
                     }
@@ -260,6 +266,8 @@ onUnmounted(() => {
                         font-weight: 600;
 
                         .login-title {
+                            user-select: none;
+                            font-size: 6vw;
                             display: inline-block;
                             border-right: 2px solid #000;
                             white-space: nowrap;
@@ -289,7 +297,6 @@ onUnmounted(() => {
             .login-col {
                 .login-card {
                     background: url('../assets/images/login-bg-small.jpg') no-repeat top left / 100%;
-
                     height: 100%;
 
                     .login-logo {
@@ -320,11 +327,16 @@ onUnmounted(() => {
 
                         .login-logo {
                             margin-bottom: 2vw;
-                            font-size: 1.5vw;
 
                             & > img {
-                                width: 3vw;
-                                height: 3vw;
+                                width: 4vw;
+                                height: 4vw;
+                            }
+
+                            & > h1 {
+                                .login-title {
+                                    font-size: 3vw;
+                                }
                             }
                         }
                     }
@@ -348,7 +360,17 @@ onUnmounted(() => {
 
                     .login-logo {
                         margin-bottom: 1.5vw;
-                        font-size: 1vw;
+
+                        & > img {
+                            width: 2.5vw;
+                            height: 2.5vw;
+                        }
+
+                        h1 {
+                            .login-title {
+                                font-size: 1.3333vw;
+                            }
+                        }
                     }
                 }
             }
