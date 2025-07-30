@@ -1,0 +1,43 @@
+html,
+body,
+div,
+p,
+span,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+a,
+img,
+button,
+input,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
