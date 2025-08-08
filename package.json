@@ -19,7 +19,7 @@
         "format": "prettier --write \"**/*.{vue,scss,css,html,json,ts,tsx,js,jsx}\"",
         "lint": "eslint . --fix",
         "commit": "git add . && git-cz",
-        "release": "semantic-release"
+        "release": "node scripts/release.js"
     },
     "packageManager": "pnpm@10.13.1",
     "devDependencies": {
