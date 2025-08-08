@@ -1,3 +1,3 @@
-const baseConfig = require('./configs/semantic/.releaserc.base.js');
+import baseConfig from '../../configs/semantic/.releaserc.base.js';
 
-module.exports = baseConfig('apps/manage');
+export default baseConfig('apps/manage');
