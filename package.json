@@ -11,7 +11,7 @@
         "lint:style": "stylelint \"**/*.{css,scss,vue}\" --fix",
         "format": "prettier . --write",
         "lint:code": "eslint . --fix",
-        "commit": "git add . && git-cz",
+        "commit": "pnpm format && pnpm lint:style && pnpm lint:code && git add . && git-cz",
         "release": "node scripts/release.js"
     },
     "packageManager": "pnpm@10.13.1",
