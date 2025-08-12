@@ -31,7 +31,6 @@ function isAsteriskWildcard(pkg) {
 
 packages.forEach((pkg) => {
     if (isAsteriskWildcard(pkg)) {
-        console.log('匹配到通配符:', pkg);
         // glob的工作路径是使用当前脚本运行时的所在目录进行匹配的
         globSync(pkg, { cwd: path.join(__dirname, '../') }).forEach((matchedPath) => {
             matchedPackages.push(matchedPath.replace(/\\/g, '/'));

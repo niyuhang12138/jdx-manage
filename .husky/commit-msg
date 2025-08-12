@@ -1,1 +1,2 @@
+echo "commitlint 检查提交信息"
 commitlint --edit
