@@ -2,5 +2,5 @@
     "extends": "./configs/tsconfig/tsconfig.base.json",
     "exclude": [".czrc", ".cz-config.js", "scripts/**/*.mjs", "*.config.js", "*.config.mjs"],
     "files": [],
-    "include": ["apps/**/*", "packages/**/*", "configs/**/*"]
+    "include": ["apps/**/*", "packages/**/*", "configs/**/*", "./eslint.config.mts"]
 }

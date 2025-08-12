@@ -1,4 +1,4 @@
-export interface CaptchaRes {
+export interface captchares {
     msg: string;
     img: string;
     code: number;
@@ -6,14 +6,14 @@ export interface CaptchaRes {
     uuid: string;
 }
 
-export interface LoginReq {
+export interface loginreq {
     code: string;
     username: string;
     password: string;
     uuid: string;
 }
 
-export interface LoginRes {
+export interface loginres {
     msg: string;
     code: number;
     token: string;

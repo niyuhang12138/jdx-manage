@@ -2,4 +2,3 @@
 <template>
     <div class="container">profile</div>
 </template>
-<style lang="scss" scoped></style>

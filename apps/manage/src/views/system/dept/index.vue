@@ -2,4 +2,3 @@
 <template>
     <div class="container">dept</div>
 </template>
-<style lang="scss" scoped></style>

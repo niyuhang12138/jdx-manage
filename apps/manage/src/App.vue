@@ -6,7 +6,7 @@ import StyledConfig from '@manage/components/styled-config/index.vue';
 <template>
     <AntdConfig>
         <StyledConfig>
-            <RouterView #default="{ Component }">
+            <RouterView v-slot="{ Component }">
                 <Component :is="Component" style="width: 100vw; height: 100vh"></Component>
             </RouterView>
         </StyledConfig>

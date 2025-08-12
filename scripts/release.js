@@ -9,7 +9,10 @@ matchedPackages.forEach((pkg) => {
     });
 });
 
-// 获取最近一次 commit 的 scope
+/**
+ * 获取最近一次 commit 的 scope
+ * @returns {string|null} 返回 scope 或 null
+ */
 function getLastCommitScope() {
     try {
         // 假设你的 commit 格式为 :emoji: type(scope): subject
@@ -21,7 +24,7 @@ function getLastCommitScope() {
             return match[2];
         }
         return null;
-    } catch (e) {
+    } catch {
         return null;
     }
 }

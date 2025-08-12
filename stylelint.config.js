@@ -1,14 +1,27 @@
 /** @type {import('stylelint').Config} */
-export default {
+module.exports = {
     extends: [
-        'stylelint-config-standard', // 标准配置
-        'stylelint-config-standard-scss', // 支持scss
-        'stylelint-config-html', // 支持html
+        'stylelint-config-standard',
+        'stylelint-config-standard-scss',
+        'stylelint-config-recommended-vue',
+        'stylelint-config-recess-order',
     ],
-    ignorePatterns: ['**/node_modules/**', '**/dist/**'], // 忽略node_modules和dist目录
+    plugins: ['stylelint-scss'],
+    overrides: [
+        {
+            files: ['**/*.vue'],
+            customSyntax: 'postcss-html',
+        },
+        {
+            files: ['**/*.scss'],
+            customSyntax: 'postcss-scss',
+        },
+    ],
     rules: {
-        // 自定义规则
-        'no-empty-source': null, // 允许空文件
-        'keyframes-name-pattern': null, // 允许自定义动画名称
+        'at-rule-no-unknown': null, // 禁用默认规则，交给 scss 插件处理
+        'scss/at-rule-no-unknown': true,
+        'media-query-no-invalid': null, // 允许无效的媒体查询
     },
+    // 忽略不需要检查的文件
+    ignoreFiles: ['**/node_modules/**/*', '**/dist/**/*', '**/build/**/*', '**/coverage/**/*'],
 };

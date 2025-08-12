@@ -7,6 +7,8 @@ import { storeToRefs } from 'pinia';
 import { computed, watch } from 'vue';
 import Menu from '@manage/components/menu/index.vue';
 
+const a: any = 12;
+
 const { Sider } = Layout;
 const { token } = theme.useToken();
 const layoutStore = useLayoutStore();
@@ -43,7 +45,7 @@ const collapsedWidth = computed(() => {
         :trigger="null"
         collapsible
         :collapsed="siderCollapsed"
-        :collapsedWidth="collapsedWidth"
+        :collapsed-width="collapsedWidth"
     >
         <Menu></Menu>
     </Sider>
@@ -53,10 +55,10 @@ const collapsedWidth = computed(() => {
 @use '@manage/assets/styles/variable' as variable;
 
 .sider {
+    box-sizing: border-box;
     height: 100%;
     background: transparent;
-    border-right-width: 1px;
     border-right-style: solid;
-    box-sizing: border-box;
+    border-right-width: 1px;
 }
 </style>

@@ -199,7 +199,7 @@ onUnmounted(() => {
                         </FormItem>
 
                         <!-- 记住密码和忘记密码 -->
-                        <FormItem name="remember" valuePropName="checked">
+                        <FormItem name="remember" value-prop-name="checked">
                             <Checkbox v-model:checked="loginData.remember">记住密码</Checkbox>
                         </FormItem>
 
@@ -207,7 +207,7 @@ onUnmounted(() => {
                         <FormItem>
                             <Button
                                 type="primary"
-                                htmlType="submit"
+                                html-type="submit"
                                 block
                                 :loading="loading"
                                 :icon="h(LoginOutlined)"
@@ -246,42 +246,42 @@ onUnmounted(() => {
             height: 100%;
 
             .login-card {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 10;
+                box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                position: absolute;
                 width: 100%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
                 padding: 5vw;
+                background: #fff;
                 border-radius: 2.6667vw;
                 box-shadow: 0 2.6667vw 8vw rgb(0 0 0 / 10%);
-                z-index: 10;
-                transition: all 0.3s ease;
-                box-sizing: border-box;
-                background: #fff;
                 opacity: 0.9;
+                transform: translate(-50%, -50%);
+                transition: all 0.3s ease;
 
                 .login-logo {
-                    text-align: center;
                     margin-bottom: 10vw;
+                    text-align: center;
 
                     & > img {
-                        border-radius: 50%;
                         margin-bottom: 1vw;
+                        border-radius: 50%;
                     }
 
                     & > h1 {
                         font-weight: 600;
 
                         .login-title {
-                            user-select: none;
-                            font-size: 6vw;
                             display: inline-block;
-                            border-right: 2px solid #000;
-                            white-space: nowrap;
                             overflow: hidden;
+                            font-size: 6vw;
+                            white-space: nowrap;
+                            user-select: none;
+                            border-right: 2px solid #000;
                             animation: cursor-blink 0.5s steps(1) infinite;
                         }
                     }
@@ -306,8 +306,8 @@ onUnmounted(() => {
         .login-row {
             .login-col {
                 .login-card {
-                    background: url('../assets/images/login-bg-small.jpg') no-repeat top left / 100%;
                     height: 100%;
+                    background: url('../assets/images/login-bg-small.jpg') no-repeat top left / 100%;
 
                     .login-logo {
                         & > img {

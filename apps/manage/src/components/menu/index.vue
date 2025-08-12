@@ -110,14 +110,14 @@ const menuClickHandler = ({ key }: MenuInfo) => {
 .container {
     .logo-section {
         display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 0 10px;
+        align-items: center;
+        justify-content: center;
 
         .logo-img {
-            transition: all 0.3s ease;
             width: 32px;
             height: 32px;
+            transition: all 0.3s ease;
         }
     }
 

@@ -1,23 +1,27 @@
-export interface InfoRes {
+export interface infores {
     code: number;
     msg: string;
-    permission: Array<string>;
-    roles: Array<string>;
-    user: User;
+    permission: array<string>;
+    roles: array<string>;
+    user: user;
 }
 
-export interface User {
+export interface user {
     // createBy: string;
     // createTime: string;
     userId: number;
+
     // deptId: number;
     userName: string;
+
     // companyId: number;
     deptName: string;
     nickName: string;
+
     // phonenumber: string;
     // sex: string;
     avatar: string;
+
     // password: string;
     // status: string;
     // delFlag: string;

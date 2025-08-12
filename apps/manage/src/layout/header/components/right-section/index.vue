@@ -27,4 +27,3 @@ const iconSize = computed<string>(() => {
         <DropDown :size="iconSize"></DropDown>
     </div>
 </template>
-<style lang="scss" scoped></style>

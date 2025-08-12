@@ -2,4 +2,3 @@
 <template>
     <div class="container">role</div>
 </template>
-<style lang="scss" scoped></style>

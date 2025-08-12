@@ -38,14 +38,14 @@ const goHomePageHandler = () => {
 
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     .pic {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         & > img {
             width: 80%;
@@ -57,47 +57,47 @@ const goHomePageHandler = () => {
         padding: 8vw;
 
         .reason {
+            margin-bottom: 5.3333vw;
             font-size: 8.5333vw;
             font-weight: bold;
             color: #1482f0;
             opacity: 0;
-            margin-bottom: 5.3333vw;
-            animation-name: slideUp;
+            animation-name: slide-up;
             animation-duration: 0.5s;
             animation-fill-mode: forwards;
         }
 
         .tip {
-            font-size: 5.3333vw;
-            color: #222;
-            font-weight: bold;
-            opacity: 0;
             margin-bottom: 2.6667vw;
-            animation: slideUp 0.5s 0.2s forwards;
+            font-size: 5.3333vw;
+            font-weight: bold;
+            color: #222;
+            opacity: 0;
+            animation: slide-up 0.5s 0.2s forwards;
         }
 
         .info {
+            margin-bottom: 8vw;
             font-size: 3.4667vw;
             line-height: 5.6vw;
             color: grey;
             opacity: 0;
-            margin-bottom: 8vw;
-            animation: slideUp 0.5s 0.2s forwards;
+            animation: slide-up 0.5s 0.2s forwards;
         }
 
         .return-home-page {
-            animation: slideUp 0.5s 0.2s forwards;
+            animation: slide-up 0.5s 0.2s forwards;
         }
 
-        @keyframes slideUp {
+        @keyframes slide-up {
             0% {
-                transform: translateY(60px);
                 opacity: 0;
+                transform: translateY(60px);
             }
 
             100% {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
     }
@@ -107,19 +107,19 @@ const goHomePageHandler = () => {
     .container {
         .description {
             .reason {
-                font-size: 2vw;
                 margin-bottom: 1vw;
+                font-size: 2vw;
             }
 
             .tip {
-                font-size: 1vw;
                 margin-bottom: 1vw;
+                font-size: 1vw;
             }
 
             .info {
+                margin-bottom: 1vw;
                 font-size: 1vw;
                 line-height: 2vw;
-                margin-bottom: 1vw;
             }
         }
     }

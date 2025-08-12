@@ -2,4 +2,3 @@
 <template>
     <div class="container">post</div>
 </template>
-<style lang="scss" scoped></style>

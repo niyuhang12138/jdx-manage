@@ -1,5 +1,5 @@
 import * as Icons from '@ant-design/icons-vue';
-import type { App } from 'vue';
+import type { App, DefineComponent } from 'vue';
 
 // 提取所有图标组件名称（包含不同命名形式）
 export const allAntdIconNames: Array<string> = Object.keys(Icons)
@@ -10,7 +10,7 @@ export const allAntdIconNames: Array<string> = Object.keys(Icons)
     });
 
 export function registerAntdIcons(app: App) {
-    allAntdIconNames.forEach((iconName) => {
-        app.component(iconName, (Icons as any)[iconName]);
+    allAntdIconNames.forEach((iconName: string) => {
+        app.component(iconName, (Icons as unknown as Array<string>)[iconName] as DefineComponent);
     });
 }

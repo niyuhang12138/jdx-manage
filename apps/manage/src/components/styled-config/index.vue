@@ -9,4 +9,3 @@ const { token } = theme.useToken();
         <slot></slot>
     </ThemeProvider>
 </template>
-<style lang="scss" scoped></style>

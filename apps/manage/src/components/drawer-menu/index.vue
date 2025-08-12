@@ -25,4 +25,3 @@ const drawerBodyStyle: CSSProperties = {
         </Drawer>
     </div>
 </template>
-<style lang="scss" scoped></style>

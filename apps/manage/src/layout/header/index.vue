@@ -31,16 +31,16 @@ const headerStyle = computed<CSSProperties>(() => {
 @use '@manage/assets/styles/variable' as variable;
 
 .header {
-    border-bottom: 1px solid transparent;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid transparent;
 
     .left,
     .right {
-        height: 100%;
         display: flex;
-        align-items: center;
         gap: 20px;
+        align-items: center;
+        height: 100%;
     }
 }
 
