@@ -1,3 +1,10 @@
+# [@nyt/tools-v1.1.0](https://github.com/niyuhang12138/jdx-manage/compare/@nyt/tools-v1.0.0...@nyt/tools-v1.1.0) (2025-08-11)
+
+
+### feat
+
+* **packages/tools:** 新增随机数 ([](https://github.com/niyuhang12138/jdx-manage/commit/9e0fb20ffe439a288b786e5fb451fe896380d7ee))
+
 # @nyt/tools-v1.0.0 (2025-08-08)
 
 
